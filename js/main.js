@@ -59,6 +59,7 @@
     entries.forEach(entry => {
       if (!entry.isIntersecting) {
         header.classList.add('scrolled');
+        h1.classList.add('scrolled');
         headerA.classList.add('scrolled');
         toTop.classList.add('scrolled');
         pcMenuAs.forEach(pcMenuA => {
@@ -68,6 +69,7 @@
         close.classList.add('scrolled');
       } else {
         header.classList.remove('scrolled');
+        h1.classList.remove('scrolled');
         headerA.classList.remove('scrolled');
         toTop.classList.remove('scrolled');
         pcMenuAs.forEach(pcMenuA => {
@@ -89,6 +91,7 @@
   const toTop = document.getElementById('to_top');
   const spmenuOpen = document.querySelector('.sp-menu #open');
   const close = document.getElementById('close');
+  const h1 = document.querySelector('h1');
 
   const inViewObserver = new IntersectionObserver(inViewCallback, options);
   
@@ -107,6 +110,16 @@
       behavior: 'smooth',
     });
   });
+
+  h1.addEventListener('click', e => {
+    e.preventDefault();
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  });
+
 }
 
 // Slide Show
